@@ -1,15 +1,30 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Header from './components/Header'
 
 function App() {
+
+  const [projects, setProjects] = useState(["Facebook","Uber"])
+
+  function handleAddProject(){
+     setProjects([...projects, `Projeto criado em: ${Date.now()}`])
+  }
+
   return(
     <>
       <Header title="React">
           <ul>
-              <li>Componentização</li>
-              <li>Propriedades</li>
+              {projects.map(project => (
+                <li key={project}>
+                  {project}
+                </li>
+              ))}
           </ul>
       </Header>
+
+                <button type="button" onClick={handleAddProject}>
+                  Adicionar projeto
+                </button>
+
     </>
   )
 }
