@@ -1,7 +1,10 @@
 const express = require("express")   // importei
+const cors = require("cors")
 const app = express()   // atribui
 const {uuid} = require("uuidv4")
+
 app.use(express.json())  // faz com que o express entenda as aquisições feitas pelo json
+app.use(cors())
 
 const projetos = []
 
